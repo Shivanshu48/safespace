@@ -163,8 +163,8 @@ $trusted_email = $user ? $user['trusted_email'] : '';
       <div id="centers" class="tab-content card" style="display:none">
         <h4>Help Centers</h4>
         <div style="display:grid;gap:8px;margin-top:8px">
-          <div class="card"><strong>Central Police Station</strong><div class="small">24/7 – 1800-XXX-XXXX</div></div>
-          <div class="card"><strong>Women Help Line</strong><div class="small">08:00 - 20:00 – 1800-YYY-YYYY</div></div>
+          <div class="card"><strong>Central Police Station</strong><div class="small">24/7 – 100</div></div>
+          <div class="card"><strong>Women Help Line</strong><div class="small">08:00 - 20:00 – 1800-180-256</div></div>
         </div>
       </div>
     </section>
