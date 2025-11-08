@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — SafeSpace</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <div class="mark">SS</div>
+        <div>
+          <div style="font-weight:700">SafeSpace</div>
+          <div style="font-size:12px;color:var(--muted)">Sign in</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="/index.php">Home</a>
+        <a href="register.html" class="cta">Create Account</a>
+      </nav>
+
+      <button class="hamburger">☰</button>
+    </div>
+  </header>
+
+  <main class="container center" style="min-height:80vh;padding-top:40px;">
+    <div class="glass-card" style="width:420px;max-width:94%;backdrop-filter: blur(10px);">
+      <h2 style="margin:0 0 8px">Welcome back</h2>
+      <p class="small" style="margin:0 0 18px">Sign in to access SafeSpace features</p>
+
+      <form id="loginForm" class="form" action="backend/login.php" method="POST">
+        <input class="input" type="email" name="email" placeholder="Email" autocomplete="email" required>
+        <input class="input" type="password" name="password" placeholder="Password" autocomplete="current-password" required>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <a href="#" class="small">Forgot Password?</a>
+          <button class="btn cta" type="submit">Sign In</button>
+        </div>
+      </form>
+
+      <div style="margin-top:14px;text-align:center">
+        <span class="small">Don't have an account?</span>
+        <a href="register.html" class="small" style="margin-left:6px">Create Account</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="small">SafeSpace — Be safe, stay connected.</div>
+      <div class="small">© SafeSpace</div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
