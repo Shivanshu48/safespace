@@ -140,9 +140,9 @@
       <div class="card">
         <h4>Quick Actions</h4>
         <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
-          <button class="btn" onclick="location.href='report.html'">Report Incident</button>
-          <button class="btn" onclick="location.href='map.html'">Open Safety Map</button>
-          <button class="btn" onclick="location.href='sos.html'">Trigger SOS</button>
+          <button class="btn" onclick="location.href='/report.php'">Report Incident</button>
+          <button class="btn" onclick="location.href='/map.php'">Open Safety Map</button>
+          <button class="btn" onclick="location.href='/sos.php'">Trigger SOS</button>
         </div>
       </div>
     </section>
@@ -153,7 +153,7 @@
       <div>© <strong>SafeSpace</strong> · Built by Innov8</div>
       <div>
         <a href="about.html" style="color:var(--muted);margin-right:12px">About</a>
-        <a href="contact.html" style="color:var(--muted)">Contact</a>
+        <a href="/contact.php" style="color:var(--muted)">Contact</a>
       </div>
     </div>
   </footer>
