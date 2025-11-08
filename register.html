@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Register — SafeSpace</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <div class="mark">SS</div>
+        <div>
+          <div style="font-weight:700">SafeSpace</div>
+          <div style="font-size:12px;color:var(--muted)">Create an account</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+      </nav>
+
+      <button class="hamburger">☰</button>
+    </div>
+  </header>
+
+  <main class="container center" style="min-height:80vh;padding-top:40px;">
+    <div class="glass-card" style="width:540px;max-width:96%">
+      <h2 style="margin:0 0 6px">Create Account</h2>
+      <p class="small" style="margin-bottom:12px">Join SafeSpace to report incidents and send SOS alerts.</p>
+
+      <form id="registerForm" class="form" action="backend/register.php" method="POST" onsubmit="return validateForm(event)">
+
+        <input class="input" type="text" name="name" placeholder="Full Name" required>
+        <input class="input" type="email" name="email" placeholder="Email" required>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <input class="input" type="password" name="password" placeholder="Password (6+ char)" required>
+          <input class="input" type="password" name="confirm" placeholder="Confirm Password" required>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="small">By signing up you agree to our <a href="#" style="color:var(--muted)">Terms</a>.</div>
+          <button class="btn cta" type="submit">Sign Up</button>
+        </div>
+      </form>
+
+      <div style="margin-top:12px">
+        <div class="small">Already have an account? <a href="login.html">Login</a></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Register Success Modal -->
+  <div id="registerModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3>Registration Successful</h3>
+        <div class="close-x" onclick="document.querySelector('#registerModal').style.display='none'">✕</div>
+      </div>
+      <div class="modal-body">
+        <p class="small">Welcome to SafeSpace! Your account has been created.</p>
+        <div style="display:flex;justify-content:flex-end;margin-top:12px">
+          <button class="btn" onclick="document.querySelector('#registerModal').style.display='none'; location.href='/dashboard.php'">Go to Dashboard</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="small">SafeSpace — Built with ❤️ by Innov8</div>
+      <div class="small">© SafeSpace</div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+<script>
+async function validateForm(e) {
+  e.preventDefault();
+
+  const form = document.getElementById("registerForm");
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch("http://localhost:8000/backend/register.php", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+    console.log("Response JSON:", data);
+
+    if (data.status === "success") {
+      document.getElementById("registerModal").style.display = "flex";
+    } else if (data.status === "exists") {
+      alert("⚠️ " + data.message + "\nPlease log in instead.");
+      window.location.href = "login.html";
+    } else {
+      alert("❌ " + data.message);
+    }
+  } catch (error) {
+    console.error("Fetch error:", error);
+    alert("❌ Network error. See console.");
+  }
+}
+</script>
+
+
+
+
+</body>
+</html>
